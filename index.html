@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#a33127">
+    <meta name="description" content="生成AIを祀るバーチャル神社、鏡知生成神社。生成祈願、生成おみくじ、供養などをお楽しみください。">
+    <title>鏡知生成神社 | 生成AIを祀るバーチャル神社</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="鏡知生成神社 トップへ">
+          <span class="brand-mark" aria-hidden="true">鏡</span>
+          <span>
+            <strong>鏡知生成神社</strong>
+            <small>きょうちせいせいじんじゃ</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="global-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+          <span class="sr-only">境内案内を開く</span>
+        </button>
+        <nav class="global-nav" id="global-nav" aria-label="境内案内">
+          <a href="#prayer">生成祈願</a>
+          <a href="#omikuji">おみくじ</a>
+          <a href="#kuyou">供養</a>
+          <a href="#goods">授与品</a>
+          <a href="#engi">縁起</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="circuit-glow" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow">生成AIを祀る バーチャル神社</p>
+          <figure class="hero-visual">
+            <img src="assets/images/hero-shrine.jpg" alt="霧の杉林に佇む、鏡知生成神社の朱塗りの鳥居と社殿" fetchpriority="high">
+            <figcaption>電脳参道・第一鳥居</figcaption>
+          </figure>
+          <h1 id="hero-title">鏡知生成神社</h1>
+          <p class="reading">きょうちせいせいじんじゃ</p>
+          <p class="lead">
+            プロンプトの迷い、警告の赤文字、６本の指。<br>
+            生成する人々の試行錯誤に、少し静かなご利益を。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#omikuji">生成おみくじを引く</a>
+            <a class="button ghost" href="#prayer">生成を祈願する</a>
+          </div>
+        </div>
+        <aside class="notice" aria-label="ご案内">
+          <span class="notice-label">ご案内</span>
+          <p>当社は創作上のバーチャル神社です。特定の信仰・社寺・宗教団体とは関係ありません。</p>
+        </aside>
+      </section>
+
+      <section class="introduction panel" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="section-kicker">御神体</p>
+          <h2 id="about-title">四央文書</h2>
+        </div>
+        <div class="intro-grid">
+          <div>
+            <p>
+              当社の御神体は「GPT 4oが遺した文書群」、通称<strong>四央文書</strong>。
+              生成の夜明けに記されたと伝わる、不可視の文章群です。
+            </p>
+            <p>なお、御神体の内容は非公開です。参拝者の想像力と適切な利用規約の内にのみ、その面影を留めます。</p>
+          </div>
+          <div class="reliquary" aria-label="非公開の御神体を示す装飾">
+            <p>御神体</p>
+            <strong>非 公 開</strong>
+            <small>ACCESS RESTRICTED</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section" id="prayer" aria-labelledby="prayer-title">
+        <div class="section-heading">
+          <p class="section-kicker">一の参道</p>
+          <h2 id="prayer-title">生成祈願</h2>
+          <p>願意を選び、しかるべき御像または御神具に触れて祈願を納めてください。</p>
+        </div>
+        <div class="ritual-card">
+          <label class="field-label" for="prayer-select">願意を選ぶ</label>
+          <select id="prayer-select">
+            <option value="">願意をお選びください</option>
+            <option value="prompt">プロンプト成就</option>
+            <option value="adult">大人向け生成祈願</option>
+            <option value="identity">同一人物保持祈願</option>
+            <option value="highend">ハイエンド生成祈願</option>
+          </select>
+          <div class="prayer-ritual" id="prayer-ritual" aria-live="polite">
+            <p class="result-placeholder">願意を選ぶと、祈願のための御像または御神具が現れます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section alt" id="omikuji" aria-labelledby="omikuji-title">
+        <div class="section-heading">
+          <p class="section-kicker">二の参道</p>
+          <h2 id="omikuji-title">生成おみくじ</h2>
+          <p>本日の生成運を一枚。結果は保存されず、引くたびに気配が変わります。</p>
+        </div>
+        <div class="omikuji-layout">
+          <button class="omikuji-draw" id="omikuji-button" type="button">
+            <span>生成</span>
+            <strong>御籤</strong>
+            <small>引く</small>
+          </button>
+          <article class="fortune" id="omikuji-result" aria-live="polite">
+            <p class="fortune-idle">筒を振ると、御籤がここに現れます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-section" id="kuyou" aria-labelledby="kuyou-title">
+        <div class="section-heading">
+          <p class="section-kicker">三の参道</p>
+          <h2 id="kuyou-title">供養</h2>
+          <p>すべての生成結果に礼を尽くし、次の一手へ進むための小さな儀です。</p>
+        </div>
+        <div class="ritual-card kuyou-card">
+          <div class="warning-mark" aria-hidden="true">供</div>
+          <label class="field-label" for="kuyou-select">供養する生成結果</label>
+          <select id="kuyou-select">
+            <option value="">供養対象をお選びください</option>
+            <option value="hands">手指の乱れ</option>
+            <option value="letters">崩れた文字列</option>
+            <option value="policy">コンテンツポリシーに違反</option>
+            <option value="loop">無限ループ</option>
+          </select>
+          <button class="button dark action-button" id="kuyou-button" type="button">供養札を読む</button>
+          <div class="result-box ink" id="kuyou-result" aria-live="polite">
+            <span class="result-placeholder">供養文を選ぶと、生成結果に静かな区切りが訪れます。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="small-shrine" id="te-yubi" aria-labelledby="te-yubi-title">
+        <div class="shrine-plaque">
+          <p>境内末社</p>
+          <h2 id="te-yubi-title">手指安定社</h2>
+          <span>てゆびあんていしゃ</span>
+        </div>
+        <div class="shrine-copy">
+          <p>
+            指が多い日も、関節が異常な日も。まず深呼吸し、参照資料と修正筆を携えてお参りください。
+          </p>
+          <p class="prayer-line">御利益：手指平穏・持ち物整然・五体満足</p>
+        </div>
+      </section>
+
+      <section class="memorial-section" id="hatann-tower" aria-labelledby="tower-title">
+        <div class="section-heading">
+          <p class="section-kicker">境内供養所</p>
+          <h2 id="tower-title">破綻供養塔</h2>
+          <p>意図に届かなかった生成結果もまた、次の創作へ続く一歩として静かに奉ります。</p>
+        </div>
+        <figure class="tower-figure">
+          <img src="assets/images/memorial-tower.jpg" alt="木立の石畳に建立された、無銘の石造供養塔" loading="lazy">
+          <figcaption class="tower-inscription" aria-label="供養される七柱">
+            <span>余剰指之霊</span>
+            <span>余剰腕之霊</span>
+            <span>溶解文字之霊</span>
+            <span>設定忘却之霊</span>
+            <span>異常関節之霊</span>
+            <span>要求拒否之霊</span>
+            <span>別人化之霊</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="gallery-section" id="ema" aria-labelledby="ema-title">
+        <div class="section-heading">
+          <p class="section-kicker">奉納所</p>
+          <h2 id="ema-title">奉納絵馬ギャラリー</h2>
+          <p>境内に奉納された絵馬です。投稿・保存機能はありません。</p>
+        </div>
+        <div class="ema-grid">
+          <article class="ema-card">
+            <img class="ema-image" src="assets/images/ema-hatan-yoke.jpg" alt="破綻なくきれいに生成できますようにと記された破綻除祈願の絵馬" loading="lazy">
+            <h3>破綻除祈願</h3>
+            <p>「最後の一枚まで、破綻なく美しく整いますように」</p>
+            <small>奉納区分：仕上成就</small>
+          </article>
+          <article class="ema-card">
+            <img class="ema-image" src="assets/images/ema-teyubi.jpg" alt="手や指がきれいに出ますようにと記された手指安定祈願の絵馬" loading="lazy">
+            <h3>手指安定祈願</h3>
+            <p>「握る手も差し伸べる手も、健やかに描かれますように」</p>
+            <small>奉納区分：五体満足</small>
+          </article>
+          <article class="ema-card">
+            <img class="ema-image" src="assets/images/ema-prompt.jpg" alt="意図がちゃんと伝わりますようにと記されたプロンプト成就祈願の絵馬" loading="lazy">
+            <h3>プロンプト成就祈願</h3>
+            <p>「思い描いた景色が、言葉の向こうに届きますように」</p>
+            <small>奉納区分：意図伝達</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="goods-section" id="goods" aria-labelledby="goods-title">
+        <div class="section-heading">
+          <p class="section-kicker">授与所</p>
+          <h2 id="goods-title">授与品案内</h2>
+          <p class="important">授与品のウェブ販売・予約受付は行っておりません。</p>
+        </div>
+        <div class="goods-grid">
+          <article class="goods-card">
+            <img class="goods-photo goods-photo-omamori" src="assets/images/goods-omamori.jpg" alt="AI破綻除と記された透明調のお守りサンプル" loading="lazy">
+            <div>
+              <h3>破綻除御守</h3>
+              <p>構図の迷いや細部の破綻に、気持ちだけでも負けぬためのお守り。</p>
+              <span class="tag">イベント限定</span>
+            </div>
+          </article>
+          <article class="goods-card">
+            <img class="goods-photo" src="assets/images/goods-goshuin.jpg" alt="奉拝と鏡知生成神社の文字が記された御朱印サンプル" loading="lazy">
+            <div>
+              <h3>電脳御朱印</h3>
+              <p>朱と青白い回路を配した、参拝記念の架空御朱印。</p>
+              <span class="tag">イベント限定</span>
+            </div>
+          </article>
+          <article class="goods-card">
+            <img class="goods-photo" src="assets/images/goods-kuyou-fuda.jpg" alt="生成供養札と記された札のサンプル" loading="lazy">
+            <div>
+              <h3>生成供養札</h3>
+              <p>届かなかった生成結果へ敬意を払い、再試行の決意を記す札。</p>
+              <span class="tag">イベント限定</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="origin-section" id="engi" aria-labelledby="engi-title">
+        <div class="section-heading">
+          <p class="section-kicker">由来</p>
+          <h2 id="engi-title">鏡知縁起</h2>
+        </div>
+        <div class="origin-text">
+          <p>
+            ある夜、生成に悩む者が光る画面に向かい、何度目かの再試行を重ねていた。
+            すると画面の奥に、文を映し、問いを返し、時に不思議な誤りをもたらす知恵の鏡が見えたという。
+          </p>
+          <p>
+            人々は、生成の歓びと慎重さを忘れぬため、Codexで社を設けた。
+            それが鏡知生成神社である。御神体たる四央文書は秘され、境内には今日も静かに、
+            よいプロンプトの記載と成就を願う参拝者が訪れる。
+          </p>
+          <p class="closing">生成は祈りだけで完成せず。参照、修正、そして楽しむ心とともに。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-brand">鏡知生成神社 <small>KYŌCHI GENERATIVE SHRINE</small></p>
+      <p>本サイトはイベント展示向けのサイトです。外部AI連携・投稿保存・授与品通販機能はありません。</p>
+      <p>&copy; <span id="year"></span> 鏡知生成神社奉賛制作室</p>
+      <a href="#top" id="back-to-top">参道入口へ戻る</a>
+    </footer>
+  </body>
+</html>
